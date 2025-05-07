@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kie.apache.org/dmn/_96D74048-B4BC-455F-B1F5-42CD79464E0D" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_2CF5FBE6-3AB2-4325-8B9F-A303AA1A2C9E" name="tunnelofen" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kie.apache.org/dmn/_96D74048-B4BC-455F-B1F5-42CD79464E0D">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_86608A44-BD5F-4513-ADE8-145ADCA73E72" name="currentTemp" isCollection="false">
+    <dmn:typeRef>number</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_65137DE5-288C-4D2C-90FD-A02B9CABA15B" name="state" isCollection="false">
+    <dmn:typeRef>boolean</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_02CA7C67-C1D0-40CE-8D80-4E733928BA02" name="warningState" isCollection="false">
+    <dmn:typeRef>string</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_FA1CD9CE-38D6-4DC0-9BE6-2337688EF5B0" name="currentTemp">
+    <dmn:extensionElements/>
+    <dmn:variable id="_1FEFEF44-240C-4CBC-926C-F72A27EFE79B" name="currentTemp"/>
+  </dmn:inputData>
+  <dmn:decision id="_239321D0-46CF-44F4-A99E-0B29E054567F" name="warningState">
+    <dmn:extensionElements/>
+    <dmn:variable id="_8D4F6125-7ADE-4F19-9CE9-C114F2975084" name="warningState" typeRef="warningState"/>
+    <dmn:informationRequirement id="_2974CF49-5546-4E26-8BB5-EFCEB4C35EC0">
+      <dmn:requiredInput href="#_FA1CD9CE-38D6-4DC0-9BE6-2337688EF5B0"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_E1891F96-6818-4A90-9E64-C71114A26B33" hitPolicy="FIRST" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_75E917FC-F8E7-4298-A152-FBBCB9BCFCD6">
+        <dmn:inputExpression typeRef="number">
+          <dmn:text>currentTemp</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_25D0765D-BD94-4F2B-A847-0BD1A6B3D0F8"/>
+      <dmn:annotation name="annotation-1"/>
+      <dmn:rule id="_D65883C3-B880-461C-8F5D-E1E4B94117BE">
+        <dmn:inputEntry id="_CB30367D-7C17-460C-B9FD-E0FC74EC3D7D">
+          <dmn:text>&lt;=25</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_2FE01A62-BD17-43DD-8A14-2D763A55AD30">
+          <dmn:text>"green"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_AB0EFE89-641E-4646-B0BF-CAB73E8B746A">
+        <dmn:inputEntry id="_77BC3394-79CE-41A1-B0FA-0E79A0989B8D">
+          <dmn:text>&gt;25 and &lt;=30</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_22F4A3F1-BD61-46E9-8558-37D0A8813997">
+          <dmn:text>"yellow"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_BB839ECD-DA3B-4BA3-B64F-ADDCF2F27FB7">
+        <dmn:inputEntry id="_7997F6EE-82DD-4732-9213-A10E8C0128F2">
+          <dmn:text>&gt;30</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_07C7CBD9-A2C3-40AD-8FE9-F3B88E19468E">
+          <dmn:text>"red"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_DF4B6DC5-531E-4DF8-A909-E05C3D584717" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_E1891F96-6818-4A90-9E64-C71114A26B33">
+            <kie:width>50</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_FA1CD9CE-38D6-4DC0-9BE6-2337688EF5B0" dmnElementRef="_FA1CD9CE-38D6-4DC0-9BE6-2337688EF5B0" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="182" y="143" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_239321D0-46CF-44F4-A99E-0B29E054567F" dmnElementRef="_239321D0-46CF-44F4-A99E-0B29E054567F" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="182" y="13" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_2974CF49-5546-4E26-8BB5-EFCEB4C35EC0-AUTO-SOURCE-AUTO-TARGET" dmnElementRef="_2974CF49-5546-4E26-8BB5-EFCEB4C35EC0">
+        <di:waypoint x="232" y="143"/>
+        <di:waypoint x="232" y="63"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
