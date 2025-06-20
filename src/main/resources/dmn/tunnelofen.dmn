@@ -22,7 +22,7 @@
     </dmn:informationRequirement>
     <dmn:decisionTable id="_E1891F96-6818-4A90-9E64-C71114A26B33" hitPolicy="FIRST" preferredOrientation="Rule-as-Row">
       <dmn:input id="_75E917FC-F8E7-4298-A152-FBBCB9BCFCD6">
-        <dmn:inputExpression id="_D875A220-13AC-40BA-A0E4-A4CE01C6DFF4" typeRef="number">
+        <dmn:inputExpression typeRef="number">
           <dmn:text>currentTemp</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
@@ -30,7 +30,7 @@
       <dmn:annotation name="annotation-1"/>
       <dmn:rule id="_D65883C3-B880-461C-8F5D-E1E4B94117BE">
         <dmn:inputEntry id="_CB30367D-7C17-460C-B9FD-E0FC74EC3D7D">
-          <dmn:text>&lt; 25</dmn:text>
+          <dmn:text>&lt; 27</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_2FE01A62-BD17-43DD-8A14-2D763A55AD30">
           <dmn:text>"green"</dmn:text>
@@ -41,7 +41,7 @@
       </dmn:rule>
       <dmn:rule id="_AB0EFE89-641E-4646-B0BF-CAB73E8B746A">
         <dmn:inputEntry id="_77BC3394-79CE-41A1-B0FA-0E79A0989B8D">
-          <dmn:text>	[25.0000001..30]</dmn:text>
+          <dmn:text>	[27.0000001..30]</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_22F4A3F1-BD61-46E9-8558-37D0A8813997">
           <dmn:text>"yellow"</dmn:text>
